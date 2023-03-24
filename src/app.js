@@ -11,6 +11,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/products', require('./routes/product'));
+const users = require('./routes/user');
+const products = require('./routes/product');
+
+app.use('/api/products', products);
+app.use('/api/users', users);
 
 module.exports = app;
