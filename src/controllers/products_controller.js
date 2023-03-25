@@ -12,8 +12,10 @@ productsCtrl.setUser = async (req,res) => {
   
   if(Product.findOne(req.params.id)==undefined||Product.findOne(req.params.id)!=req.body.user){
     await Product.updateOne({ _id: req.params.id }, { $set: { user: req.body.user } });
+    res.redirect('/')
+  }else {
+    res.redirect('/')
   };
   }
   
-
 module.exports = productsCtrl;

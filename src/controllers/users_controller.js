@@ -11,8 +11,8 @@ usersCtrl.getUsers = async (req,res) => {
 //create user
 usersCtrl.createUser = async (req,res) => {
     const {name,lastName,email} = req.body; 
-    await User.create({name,lastName,email}).then(
-        res.json({...req.body}));
+    await User.create({name,lastName,email})
+    res.redirect('/');
     
 };
 
